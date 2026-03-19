@@ -1,0 +1,114 @@
+/* 🚀 PERFORMANCE OPTIMIZATIONS */
+
+/* GPU Acceleration for smooth scrolling */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Smooth scroll with GPU */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overscroll-behavior-y: contain;
+  /* GPU layer for body */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize grid rendering */
+.grid {
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* Optimize movie tiles */
+.movie-tile-optimized {
+  contain: layout style paint;
+  content-visibility: auto;
+  /* Remove will-change to save memory */
+}
+
+.movie-tile-optimized:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6), 0 12px 32px rgba(0,0,0,0.7);
+}
+
+/* Optimize scrollable areas */
+.overflow-x-auto,
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Optimize backdrop blur */
+.backdrop-blur-xl {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* Use GPU */
+  transform: translateZ(0);
+}
+
+/* Reduce motion for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize button interactions */
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize fixed elements */
+.fixed {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize sticky elements */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  transform: translateZ(0);
+}
+
+/* Better font rendering */
+.font-sans,
+.font-brand {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+/* Optimize gradients */
+.bg-gradient-to-r,
+.bg-gradient-to-b,
+.bg-gradient-to-br {
+  transform: translateZ(0);
+}
